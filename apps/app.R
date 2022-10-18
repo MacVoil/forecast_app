@@ -5,11 +5,27 @@ library(shiny)
 library(ggplot2)
 library(bslib)
 
+LOGO <- "https://www.alianza.com.co/o/alianza-theme/images/alianza/layout_set_logo.png"
+TITLE <- "Forecast Ingresos"
+
 # Chick weights investigated over three panels
 ui <- navbarPage(
-  title = "Forecast Ingresos",
+  tags$head(
+    tags$style(
+      HTML(
+        ".navbar-brand {
+          display: flex;
+          align-items: center;
+        }" 
+      )
+    )
+  ),
+  title=div(img(src=LOGO,style="margin-top: 10px;
+                               padding-right:10px;
+                               padding-bottom:10px;",
+                height = 50), TITLE),
   collapsible = FALSE,
-  theme = bs_theme(bootswatch = "slate"),
+  #theme = bs_theme(bootswatch = "slate"),
   tabPanel(
     title = "Settings",
       div(
